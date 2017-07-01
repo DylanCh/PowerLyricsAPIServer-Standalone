@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="h1">Search Lyrics</p>
+<div class="container">
+    <div class="form-group">
+       @using (Html.BeginForm("data", "MusixMatch", FormMethod.Get))
+       {
+        @Html.TextBox("artist",null, new { @class="form-control",placeholder="Artist"})
+        @Html.TextBox("title",null, new { @class="form-control",placeholder = "Title"})
+        <input type="submit" value="Get Data" class="form-control" />
+       }
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#artist').prop("placeholder", "Artist");
+            $('#title').prop("placeholder", "Title").val("");
+        });
+    </script>
+</div>
+
